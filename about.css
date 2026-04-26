@@ -1,0 +1,202 @@
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+
+/* ─── HERO HEADING ──────────────────────────────────────────── */
+.ap_hero {
+  padding-top: 7.5rem;   /* room for fixed nav */
+  padding-bottom: 7.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Each word lives in an overflow:hidden container for the slide-up */
+.ap_word_wrap {
+  overflow: hidden;
+  display: block;
+  line-height: 0.95;
+}
+
+.ap_heading {
+  margin: 0;
+  text-align: right;
+}
+
+/* The word itself — Kotler spec: weight 400, ~10.5vw, uppercase */
+.ap_word {
+  display: block;
+  font-family: var(--ff2);
+  font-size: clamp(4rem, 10.5vw, 13rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  color: var(--fg);
+}
+
+/* ─── SHARED SECTION LABEL (dot + text) ─────────────────────── */
+.ap_section_label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 3rem;
+  padding-top: 0.25rem;
+}
+
+.ap_dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.ap_label_text {
+  font-family: var(--ff1);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+/* ─── BIO SECTION ───────────────────────────────────────────── */
+.ap_bio {
+  padding-top: 5rem;
+  padding-bottom: 7.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ap_bio_grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.ap_bio_img_wrap {
+  position: sticky;
+  top: 7rem;
+}
+
+.ap_bio_img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.ap_bio_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ap_bio_para {
+  font-family: var(--ff1);
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  line-height: 1.75;
+  color: var(--fg2);
+  margin-bottom: 1.5rem;
+  max-width: 38rem;
+}
+
+.ap_bio_para:last-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.ap_bio_cta {
+  align-self: flex-start;
+}
+
+/* ─── FACTS / ACCORDION ─────────────────────────────────────── */
+.ap_facts {
+  padding-top: 5rem;
+  padding-bottom: 7.5rem;
+}
+
+.ap_accordion {
+  border-top: 1px solid var(--border);
+}
+
+.ap_acc_item {
+  border-bottom: 1px solid var(--border);
+}
+
+.ap_acc_trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+@media (pointer: fine) {
+  .ap_acc_trigger:hover { color: var(--accent); }
+}
+
+.ap_acc_title {
+  font-family: var(--ff2);
+  font-size: clamp(1rem, 1.8vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.ap_acc_icon {
+  font-family: var(--ff1);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  line-height: 1;
+}
+
+.ap_acc_item.is-open .ap_acc_icon {
+  transform: rotate(45deg);
+}
+
+.ap_acc_body {
+  height: 0;
+  overflow: hidden;
+}
+
+.ap_acc_body p {
+  font-family: var(--ff1);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--fg2);
+  max-width: 48rem;
+  padding-bottom: 2rem;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .ap_bio_grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ap_bio_img_wrap {
+    position: static;
+    max-width: 26rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .ap_hero {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+  }
+
+  .ap_word {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+}
