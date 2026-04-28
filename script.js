@@ -23,7 +23,7 @@ var i18n = {
     'proj2-source-label': 'Source photo',
     'proj3-tag':          'Production',
     'proj3-title':        'Directed.<br>Start to finish.',
-    'proj3-desc':         'A complete club event promotional video produced entirely with AI — script, motion design, transitions, and sound design. Visuals created with Google Imagen 2, animated with Seedance. From brief to export in hours, no filming involved.',
+    'proj3-desc':         'Script, visuals, motion, sound — a complete club promo built entirely with AI. No camera, no crew, no studio. From brief to export in hours, not days. The kind of promo that used to require a full production team.',
     'proj4-tag':          'Automation',
     'proj4-title':        'Answers<br>the phone.',
     'proj4-desc':         'An AI voice agent that handles restaurant reservation calls in Italian — built on Vapi.ai, ElevenLabs, n8n, and Google Sheets. It collects name, date, time, number of guests, allergies, and table preference, checks availability, prevents double bookings, and logs the confirmed reservation automatically. In production it connects to TheFork, Google Calendar, or whatever the restaurant already uses.',
@@ -32,20 +32,20 @@ var i18n = {
     'about-hero-word':    'About',
     'about-label':        'Developer. AI Creative. Automation Builder.',
     'about-bio-1':        'I\'m Francesco Angeli, 25, from Arona — a small town on Lake Maggiore, halfway between Milan and the Alps. I grew up curious about technology, restless in the best way, and drawn to anything that let me turn an idea into something real.',
-    'about-bio-2':        'I studied economics at university, but what I actually became is a builder. When AI tools started arriving — properly, in 2022 — I saw something most people missed: a way to prototype and create without needing a full team. If you can think clearly, learn fast, and understand design, AI becomes a creative amplifier. That\'s what I\'ve been doing ever since.',
-    'about-bio-3':        'I\'ve built data analysis tools, photo editing apps, automation systems for businesses, AI-narrated presentations, and now — AI-driven creative content for events, restaurants, and clubs. I use tools like Kling, Midjourney, Sora, and n8n, but the tool is never the point. The point is the result: content that looks expensive, systems that save time, and ideas that actually work.',
+    'about-bio-2':        'I studied economics at university, but what I actually became is a builder. When AI tools started arriving — properly, in 2022 — I realized they were a way to prototype and create without needing a full team. If you can think clearly, learn fast, and understand design, AI becomes a creative amplifier. That\'s what I\'ve been doing ever since.',
+    'about-bio-3':        'I\'ve built data analysis tools, photo editing apps, automation systems for businesses, AI-narrated presentations, and now — AI-driven creative content for events, restaurants, and clubs. I use tools like Kling, Midjourney, Seedance, and n8n, but the tool is never the point. The point is the result: content that looks expensive, systems that save time, and ideas that actually work.',
     'about-bio-4':        'I believe in clean work. Not minimal for the sake of minimal — but intentional. Everything should earn its place. Whether it\'s a 15-second promo video or an automated reservation workflow, I want it to be something you\'re proud to show.',
     'about-bio-5':        'I\'m based in northern Italy but I work with anyone who has an interesting problem. If you\'re building something — let\'s talk.',
     'about-cta':          'Get in touch →',
     'about-facts-label':  'More about Francesco',
     'acc-1-title':        'I\'ve been working with AI since ChatGPT launched in 2022.',
-    'acc-1-body':         'I adopted AI earlier than most — not as a trend, but because I immediately saw what it could do for someone who thinks in systems. I started using Claude as soon as it came out — Sonnet 3, when most people hadn\'t even heard of it. I learn new tools extremely fast and adapt to whatever a project needs.',
+    'acc-1-body':         'I started working with AI as soon as it became usable — not as a trend, but because it was immediately clear what it could do for someone who thinks in systems. I started using Claude from Sonnet 3. I learn new tools extremely fast and adapt to whatever a project needs.',
     'acc-2-title':        'I combine creative production with technical automation.',
-    'acc-2-body':         'Most people are one or the other. I\'m both. Video, photography, content — but also n8n workflows, AI APIs, reservation systems, and social media pipelines. A rare combination that lets me deliver end-to-end.',
+    'acc-2-body':         'Video, photography, content — but also n8n workflows, AI APIs, reservation systems, and social media pipelines. A combination that\'s rare to find in one person, and one that lets me deliver end-to-end.',
     'acc-3-title':        'I turned a single mountain photo into 15 seconds of aerial footage.',
     'acc-3-body':         'One still image taken near Alpe Devero. Fifteen seconds of cinematic aerial footage generated with Kling AI. No drone, no pilot, no filming permit. The result was indistinguishable from a real production shoot.',
-    'acc-4-title':        'I produced a full event promo with zero equipment.',
-    'acc-4-body':         'Script, visuals, motion, sound — a complete club promotional video built entirely with AI. No camera, no crew, no studio. From brief to export in hours, not days. The kind of promo that used to require a full production team.',
+    'acc-4-title':        'I built an AI voice agent that handles restaurant reservation calls.',
+    'acc-4-body':         'It answers the phone in Italian with a natural voice, collects reservation details, checks availability, prevents double bookings, and logs everything automatically. Built with Vapi.ai, ElevenLabs, and n8n. In production it integrates with TheFork, Google Calendar, or whatever system the restaurant already uses.',
     'acc-5-title':        'I think in systems, not just deliverables.',
     'acc-5-body':         'Not just one video or one photo — but scalable solutions that free up time and add clients. Automated content pipelines, reservation bots, booking management. Once the systems work, they work for everyone.'
   },
@@ -72,7 +72,7 @@ var i18n = {
     'proj2-source-label': 'Foto originale',
     'proj3-tag':          'Produzione',
     'proj3-title':        'Diretto.<br>Dall\'inizio alla fine.',
-    'proj3-desc':         'Un video promo completo per un evento in club, fatto interamente con l\'AI — script, motion design, transizioni e sound design. Visual creati con Google Imagen 2, animati con Seedance. Dal brief all\'export in ore.',
+    'proj3-desc':         'Script, visual, motion, suono — un promo completo per un club, fatto interamente con l\'AI. Nessuna telecamera, nessuna troupe, nessuno studio. Dal brief all\'export in ore, non giorni. Quello che prima richiedeva un\'intera squadra.',
     'proj4-tag':          'Automazione',
     'proj4-title':        'Risponde<br>al telefono.',
     'proj4-desc':         'Un agente vocale AI che risponde al telefono al posto del ristorante — in italiano, con una voce naturale. Raccoglie nome, data, orario, numero di persone, allergie e preferenza del tavolo, controlla la disponibilità, blocca i doppioni e salva tutto in automatico. La demo usa Google Sheets, ma in produzione si integra con TheFork, Google Calendar o qualsiasi gestionale già in uso.',
@@ -82,9 +82,9 @@ var i18n = {
     'about-label':        'Developer. AI Creativo. Costruttore di Automazioni.',
     'about-bio-1':        'Sono Francesco Angeli, 25 anni, di Arona — un piccolo paese sul Lago Maggiore, a metà tra Milano e le Alpi. Sono cresciuto incuriosito dalla tecnologia, irrequieto nel senso migliore, attratto da tutto ciò che mi permetteva di trasformare un\'idea in qualcosa di concreto.',
     'about-bio-2':        'Ho studiato economia, ma quello che sono diventato è un costruttore. Quando gli strumenti AI hanno iniziato ad arrivare davvero — nel 2022 — ho capito subito che erano un modo per creare e prototipare senza aver bisogno di un team completo. Se sai pensare con chiarezza, imparare in fretta e capire il design, l\'AI diventa un amplificatore. Da allora non ho smesso.',
-    'about-bio-3':        'Ho costruito tool di analisi dati, app di fotoritocco, sistemi di automazione per aziende, presentazioni narrate dall\'AI e ora contenuti creativi per eventi, ristoranti e club. Uso Kling, Midjourney, Sora, n8n — ma lo strumento non è il punto. Il punto è il risultato: contenuti che sembrano costosi, sistemi che fanno risparmiare tempo, idee che funzionano.',
-    'about-bio-4':        'Credo nel lavoro pulito. Non minimal per moda — intenzionale. Ogni cosa deve guadagnarsi il suo posto. Che sia un video di 15 secondi o un workflow di prenotazione, voglio che sia qualcosa di cui andare fieri.',
-    'about-bio-5':        'Sono nel nord Italia, ma lavoro con chiunque abbia un problema interessante. Se stai costruendo qualcosa — parliamo.',
+    'about-bio-3':        'Ho costruito tool di analisi dati, app di fotoritocco, sistemi di automazione per aziende, presentazioni narrate dall\'AI e ora contenuti creativi per eventi, ristoranti e club. Uso Kling, Midjourney, Seedance, n8n — ma lo strumento non è il punto. Il punto è il risultato: contenuti che sembrano costosi, sistemi che fanno risparmiare tempo, idee che funzionano.',
+    'about-bio-4':        'Credo nel lavoro curato. Non minimal per moda — intenzionale. Ogni cosa deve guadagnarsi il suo posto. Che sia un video di 15 secondi o un workflow di prenotazione, voglio che sia qualcosa di cui andare fieri.',
+    'about-bio-5':        'Mi trovo nel nord Italia, ma lavoro con chiunque abbia un problema interessante. Se stai costruendo qualcosa — parliamo.',
     'about-cta':          'Scrivimi →',
     'about-facts-label':  'Di più su Francesco',
     'acc-1-title':        'Lavoro con l\'AI dal 2022, da quando è uscito ChatGPT.',
@@ -93,8 +93,8 @@ var i18n = {
     'acc-2-body':         'La maggior parte sceglie un lato. Io faccio entrambi. Video, fotografia, contenuti — ma anche workflow n8n, API AI, sistemi di prenotazione e pipeline social. Una combinazione rara che mi permette di seguire tutto, dall\'inizio alla fine.',
     'acc-3-title':        'Da una foto in montagna, ho generato 15 secondi di aeree cinematografiche.',
     'acc-3-body':         'Una foto scattata vicino ad Alpe Devero. Quindici secondi di riprese aeree generate con Kling AI. Nessun drone, nessun pilota, nessun permesso. Impossibile distinguerlo da un vero set di produzione.',
-    'acc-4-title':        'Ho prodotto un promo evento completo senza nessuna attrezzatura.',
-    'acc-4-body':         'Script, visual, motion, suono — un promo completo per un club, fatto interamente con l\'AI. Nessuna telecamera, nessuna troupe, nessuno studio. Dal brief all\'export in ore, non giorni. Quello che prima richiedeva un\'intera squadra.',
+    'acc-4-title':        'Ho costruito un agente vocale AI che gestisce le prenotazioni per un ristorante.',
+    'acc-4-body':         'Risponde al telefono in italiano, con una voce naturale. Raccoglie i dati della prenotazione, controlla la disponibilità, evita i doppioni e salva tutto in automatico. Costruito con Vapi.ai, ElevenLabs e n8n. In produzione si integra con TheFork, Google Calendar o qualsiasi gestionale già in uso.',
     'acc-5-title':        'Penso per sistemi, non solo per singole consegne.',
     'acc-5-body':         'Non un singolo video o una singola foto — soluzioni scalabili che liberano tempo e portano clienti. Pipeline di contenuti automatizzate, agenti di prenotazione, gestione dei contenuti. Quando gira, gira per tutti.'
   }
@@ -762,7 +762,21 @@ if (reservationVideo && reservationOverlay && reservationPlayBtn) {
   langBtn.addEventListener('click', function () {
     var current = localStorage.getItem('lang') || 'en';
     localStorage.setItem('lang', current === 'en' ? 'it' : 'en');
-    location.reload();
+    document.body.style.transition = 'opacity 0.15s';
+    document.body.style.opacity = '0';
+    setTimeout(function () { location.reload(); }, 160);
+  });
+})();
+
+// ─── BACKGROUND VIDEO AUTOPLAY FALLBACK ──────────────────────────────────────
+// Force-play the cinematic background video — needed on some CDNs (e.g. Netlify)
+// where the browser doesn't honour the `autoplay` attribute on first load.
+(function () {
+  var bgVideo = document.querySelector('.section--video .section_video');
+  if (!bgVideo) return;
+  bgVideo.play().catch(function () {});
+  bgVideo.addEventListener('canplay', function () {
+    bgVideo.play().catch(function () {});
   });
 })();
 
