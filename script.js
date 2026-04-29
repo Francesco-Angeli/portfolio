@@ -766,26 +766,22 @@ if (reservationVideo && reservationOverlay && reservationPlayBtn) {
   pip.addEventListener('click', function (e) {
     e.stopPropagation();
     oImg.src = pip.querySelector('img').src;
-    overlay.style.display = 'flex';
+    // Enable overlay — no display toggle (breaks CSS transitions on iOS Safari)
+    overlay.style.pointerEvents = 'auto';
     document.body.style.overflow = 'hidden';
-    // Double rAF — iOS Safari needs two frames after display change to trigger transitions
     requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        overlay.style.background = 'rgba(0,0,0,0.82)';
-        oImg.style.opacity = '1';
-        oImg.style.transform = 'scale(1)';
-      });
+      overlay.style.background = 'rgba(0,0,0,0.82)';
+      oImg.style.opacity = '1';
+      oImg.style.transform = 'scale(1)';
     });
   });
 
   overlay.addEventListener('click', function () {
+    overlay.style.pointerEvents = 'none';
     overlay.style.background = 'rgba(0,0,0,0)';
     oImg.style.opacity = '0';
     oImg.style.transform = 'scale(0.88)';
-    setTimeout(function () {
-      overlay.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 1250);
+    document.body.style.overflow = '';
   });
 })();
 

@@ -229,7 +229,7 @@
         <!-- Custom video player -->
         <div class="video_player_wrap" fade-slides>
           <div class="video_player" id="eventPlayer">
-            <video id="eventVideo" playsinline preload="metadata">
+            <video id="eventVideo" playsinline preload="none">
               <source src="Assets/Event Video/Event_video.mp4" type="video/mp4">
             </video>
             <div class="video_overlay" id="videoOverlay">
@@ -316,7 +316,7 @@
         <!-- Landscape video player — screen recording -->
         <div class="video_player_wrap video_player_wrap--wide" fade-slides>
           <div class="video_player video_player--landscape" id="reservationPlayer">
-            <video id="reservationVideo" playsinline preload="metadata">
+            <video id="reservationVideo" playsinline preload="none">
               <source src="Assets/Table reservation/Video_reservation.mp4" type="video/mp4">
             </video>
             <div class="video_overlay" id="reservationOverlay">
@@ -399,7 +399,8 @@
 </div><!-- /page_wrap -->
 
 <!-- PiP lightbox — outside page_wrap (which has overflow:clip) -->
-<div id="pipOverlay" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0);align-items:center;justify-content:center;transition:background 1.2s ease;">
+<!-- Always display:flex but pointer-events:none when closed — avoids display toggle that breaks CSS transitions on iOS Safari -->
+<div id="pipOverlay" style="display:flex;pointer-events:none;cursor:pointer;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0);align-items:center;justify-content:center;transition:background 1.2s ease;">
   <img id="pipOverlayImg" src="" alt="" style="width:82vw;max-height:80vh;object-fit:contain;border-radius:0.5rem;opacity:0;transform:scale(0.88);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(0.22,1,0.36,1);">
 </div>
 
