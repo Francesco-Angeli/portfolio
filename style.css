@@ -898,6 +898,8 @@ button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-top: -1rem;
+  margin-right: 1.5rem;
 }
 
 .before_card {
@@ -937,26 +939,17 @@ button {
     max-width: 100%;
   }
 
-  /* PiP: source photo — flush with viewport top-right corner */
+  /* PiP: source photo — top-right with small margin, slightly raised */
   .section--video .before_card_wrap {
     position: absolute;
-    right: calc(-1 * var(--page-pad)); /* break out of container padding → true edge */
-    top: 0;
+    right: 0.5rem;
+    top: -1.5rem;
     width: 22%;
     z-index: 4;
     cursor: zoom-in;
-    transform-origin: top right;
-    transition: transform 0.4s cubic-bezier(0.645,0.045,0.355,1);
     /* override GSAP fade-slides invisible state on mobile */
     opacity: 1 !important;
     visibility: visible !important;
-  }
-  .section--video .before_card_wrap.is-expanded {
-    transform: scale(3);
-    cursor: zoom-out;
-  }
-  .section--video .before_card_wrap.is-expanded .before_card_label {
-    opacity: 0;
   }
   .section--video .before_card {
     max-width: 100%;

@@ -202,6 +202,12 @@ function homeLoader() {
 // Only run if the hero section exists on this page
 document.querySelector("[hero_img_wrap]") && homeLoader();
 
+// Safety net: if GSAP fails to reveal the page (slow CDN), force-show after 3.5s
+setTimeout(function () {
+  var pw = document.querySelector('[page-wrap="home"]');
+  if (pw && pw.style.visibility === 'hidden') pw.style.visibility = 'visible';
+}, 3500);
+
 // ─── TEXT ANIMATIONS — [text-split] ──────────────────────────────────────────
 // Line-by-line reveal on scroll — for labels, descriptions
 $("[text-split]").each(function () {
@@ -684,12 +690,23 @@ const ICON_PLAY  = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points
 const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
 
 if (eventVideo && videoOverlay && playBtn) {
-  eventVideo.addEventListener("loadedmetadata", function () {
-    eventVideo.currentTime = 0.001;
-  });
+  function seekToMidPreview() {
+    var d = eventVideo.duration;
+    eventVideo.currentTime = (isFinite(d) && d > 0) ? d / 2 : 0.001;
+  }
+  if (eventVideo.readyState >= 1) {
+    seekToMidPreview();
+  } else {
+    eventVideo.addEventListener("loadedmetadata", seekToMidPreview);
+  }
 
   function togglePlay() {
     if (eventVideo.paused) {
+      // If still on the preview frame, restart from beginning
+      var d = eventVideo.duration;
+      if (isFinite(d) && d > 0 && Math.abs(eventVideo.currentTime - d / 2) < 1) {
+        eventVideo.currentTime = 0;
+      }
       eventVideo.play();
       videoOverlay.classList.add("is-playing");
       playBtn.innerHTML = ICON_PAUSE;
@@ -739,19 +756,34 @@ if (reservationVideo && reservationOverlay && reservationPlayBtn) {
   });
 }
 
-// ─── PiP SOURCE PHOTO — click to expand / collapse (mobile) ──────────────────
+// ─── PiP SOURCE PHOTO — click to open centred overlay (mobile) ───────────────
 (function () {
-  const pip = document.querySelector('.section--video .before_card_wrap');
-  if (!pip) return;
+  var pip     = document.querySelector('.section--video .before_card_wrap');
+  var overlay = document.getElementById('pipOverlay');
+  var oImg    = document.getElementById('pipOverlayImg');
+  if (!pip || !overlay || !oImg) return;
 
   pip.addEventListener('click', function (e) {
     e.stopPropagation();
-    pip.classList.toggle('is-expanded');
+    oImg.src = pip.querySelector('img').src;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    // Trigger transition on next frame
+    requestAnimationFrame(function () {
+      overlay.style.background = 'rgba(0,0,0,0.82)';
+      oImg.style.opacity = '1';
+      oImg.style.transform = 'scale(1)';
+    });
   });
 
-  // Click anywhere else to close
-  document.addEventListener('click', function () {
-    pip.classList.remove('is-expanded');
+  overlay.addEventListener('click', function () {
+    overlay.style.background = 'rgba(0,0,0,0)';
+    oImg.style.opacity = '0';
+    oImg.style.transform = 'scale(0.88)';
+    setTimeout(function () {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 1250);
   });
 })();
 
@@ -769,14 +801,30 @@ if (reservationVideo && reservationOverlay && reservationPlayBtn) {
 })();
 
 // ─── BACKGROUND VIDEO AUTOPLAY FALLBACK ──────────────────────────────────────
-// Force-play the cinematic background video — needed on some CDNs (e.g. Netlify)
-// where the browser doesn't honour the `autoplay` attribute on first load.
 (function () {
   var bgVideo = document.querySelector('.section--video .section_video');
   if (!bgVideo) return;
-  bgVideo.play().catch(function () {});
-  bgVideo.addEventListener('canplay', function () {
-    bgVideo.play().catch(function () {});
+
+  bgVideo.muted = true;
+  bgVideo.defaultMuted = true;
+
+  function tryPlay() {
+    var p = bgVideo.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
+  tryPlay();
+  bgVideo.addEventListener('canplay', tryPlay);
+
+  // Retry on first user gesture — needed on iOS Low Power Mode
+  function gesturePlay() {
+    tryPlay();
+    ['touchstart', 'click'].forEach(function (ev) {
+      document.removeEventListener(ev, gesturePlay);
+    });
+  }
+  ['touchstart', 'click'].forEach(function (ev) {
+    document.addEventListener(ev, gesturePlay, { passive: true, once: true });
   });
 })();
 
