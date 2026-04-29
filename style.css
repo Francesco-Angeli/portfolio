@@ -939,15 +939,14 @@ button {
     max-width: 100%;
   }
 
-  /* PiP: source photo — top-right with small margin, slightly raised */
+  /* PiP: source photo — top-right, raised above the title */
   .section--video .before_card_wrap {
     position: absolute;
     right: 0.5rem;
-    top: -1.5rem;
+    top: -5rem;
     width: 22%;
     z-index: 4;
     cursor: zoom-in;
-    /* override GSAP fade-slides invisible state on mobile */
     opacity: 1 !important;
     visibility: visible !important;
   }
