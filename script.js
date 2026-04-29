@@ -768,11 +768,13 @@ if (reservationVideo && reservationOverlay && reservationPlayBtn) {
     oImg.src = pip.querySelector('img').src;
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    // Trigger transition on next frame
+    // Double rAF — iOS Safari needs two frames after display change to trigger transitions
     requestAnimationFrame(function () {
-      overlay.style.background = 'rgba(0,0,0,0.82)';
-      oImg.style.opacity = '1';
-      oImg.style.transform = 'scale(1)';
+      requestAnimationFrame(function () {
+        overlay.style.background = 'rgba(0,0,0,0.82)';
+        oImg.style.opacity = '1';
+        oImg.style.transform = 'scale(1)';
+      });
     });
   });
 
@@ -815,6 +817,12 @@ if (reservationVideo && reservationOverlay && reservationPlayBtn) {
 
   tryPlay();
   bgVideo.addEventListener('canplay', tryPlay);
+
+  // Manual loop — smoother than native `loop` on mobile Safari (avoids stutter at restart)
+  bgVideo.addEventListener('ended', function () {
+    bgVideo.currentTime = 0;
+    tryPlay();
+  });
 
   // Retry on first user gesture — needed on iOS Low Power Mode
   function gesturePlay() {
