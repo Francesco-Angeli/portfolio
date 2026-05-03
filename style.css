@@ -976,6 +976,10 @@ button {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+
+  #events .video_player_wrap {
+    justify-content: center;
+  }
 }
 
 /* ─── Custom video player ──────────────────────────────────── */
