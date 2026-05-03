@@ -130,7 +130,7 @@ if (true) { // replaces Webflow.env("editor") check — see Reference_style.md
     wheelMultiplier:     0.7,
     gestureOrientation:  "vertical",
     normalizeWheel:      false,
-    smoothTouch:         true
+    smoothTouch:         false
   });
 
   function raf(time) {
