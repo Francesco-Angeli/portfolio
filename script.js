@@ -690,21 +690,9 @@ const ICON_PLAY  = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points
 const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
 
 if (eventVideo && videoOverlay && playBtn) {
-  function seekToMidPreview() {
-    var d = eventVideo.duration;
-    eventVideo.currentTime = (isFinite(d) && d > 0) ? d / 2 : 0.001;
-  }
-  if (eventVideo.readyState >= 1) {
-    seekToMidPreview();
-  } else {
-    eventVideo.addEventListener("loadedmetadata", seekToMidPreview);
-  }
-
   function togglePlay() {
     if (eventVideo.paused) {
-      // If still on the preview frame, restart from beginning
-      var d = eventVideo.duration;
-      if (isFinite(d) && d > 0 && Math.abs(eventVideo.currentTime - d / 2) < 1) {
+      if (eventVideo.ended) {
         eventVideo.currentTime = 0;
       }
       eventVideo.play();
@@ -732,12 +720,11 @@ const reservationOverlay = document.getElementById("reservationOverlay");
 const reservationPlayBtn = document.getElementById("reservationPlayBtn");
 
 if (reservationVideo && reservationOverlay && reservationPlayBtn) {
-  reservationVideo.addEventListener("loadedmetadata", function () {
-    reservationVideo.currentTime = 0.001;
-  });
-
   function toggleReservation() {
     if (reservationVideo.paused) {
+      if (reservationVideo.ended) {
+        reservationVideo.currentTime = 0;
+      }
       reservationVideo.play();
       reservationOverlay.classList.add("is-playing");
       reservationPlayBtn.innerHTML = ICON_PAUSE;
